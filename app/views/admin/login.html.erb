@@ -1,0 +1,32 @@
+<section class="contact_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <div class="heading_container">
+          <h2>Admin</h2>
+          </div>
+          
+          <%= form_with do |form| %>
+            <div class="field">
+              <%= form.label "Name:" %>
+              <%= form.text_field :name %>
+            </div>
+
+            <div class="field">
+              <%= form.label "password:" %>
+              <%= form.password_field :password %>
+            </div>
+
+            <div class="d-flex ">
+              <button>
+                Login
+              </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

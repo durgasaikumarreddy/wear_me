@@ -1,0 +1,20 @@
+// Place all the styles related to the shoes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.symbol {
+    top: -.5em;
+    font-size: 12px;
+  }
+  button {
+    font-family: "Poppins", sans-serif;
+    display: inline-block;
+    padding: 10px 65px;
+    background-color: #f0d43a;
+    color: #ffffff;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid #ff0000;
+    color: #fff;
+    margin-top: 10px;
+  }

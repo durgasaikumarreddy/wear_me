@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            table {
+            border-collapse: collapse;
+            width: 50%;
+            }
+
+            th, td {
+            text-align: left;
+            padding: 15px;
+            }
+
+            tr:nth-child(even){background-color: #f2f2f2}
+
+            th {
+            background-color: #81817b;
+            color: white;
+            }
+
+            body {
+                font-family: "Poppins", sans-serif;
+                color: #0c0c0c;
+                background-color: #ffffff;
+                overflow-x: hidden;
+            }
+
+        </style>
+    </head>
+    <body>
+        &emsp;<h2>Your order has been placed.</h2>
+        <h4>your order details are:</h4>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Unit Price</th>
+                <th>Qty</th>
+                <th>Total Price</th>
+            </tr>
+            <tr>
+                <%= render @cart.line_items %>
+            </tr>
+            <tr>
+                <th colspan="2">Sub Total:</th>
+                <td class="total_cell">₹<%= @cart.total_price%></td>
+            </tr>                 
+        </table>
+        <h2>Thank you for shopping in WearMe.</h2>
+    </body>
+</html>

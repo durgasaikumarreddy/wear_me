@@ -1,0 +1,46 @@
+<section class="cart_section layout_padding">
+<div class="cart_container">
+    
+        <div align="end">
+        <% if user_signed_in? %>
+            <%= button_to "Checkout", :controller =>"shoes", :action=>"checkout", :amount =>cart.total_price%>
+        <% else%>
+            <%= button_to "Checkout", "/users/sign_in" %>
+        <% end%><br><br>
+        </div>
+
+        <div class="cart_heading_container ">
+            <h2>Your Cart</h2><br>
+        </div>
+        
+            <% unless cart.line_items.empty? %>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>&ensp;Price</th>
+                        <th>&ensp;Qty</th>
+                        <th>&ensp;Total Price</th>
+                        <th colspan="2"></th>
+                    </tr>
+                    <%= render(cart.line_items) %>
+                    <tr>
+                        <th colspan="2">Sub Total:</th>
+                        <td class="total_cell">₹<%= cart.total_price%></td>
+                    </tr>
+                    <% session[:amount] = "₹ #{cart.total_price}" %>
+                    
+                </table>
+                <table>
+                <%= button_to "Continue Shopping", :controller=>"shoes", :action=>"index", :amount =>cart.total_price%>&emsp;
+    
+                    <tr>
+                        <%= button_to 'Empty Cart', cart, :method => :delete, :conirm => 'Are you sure?' %>&emsp;
+                        
+                    </tr>
+                <% end%>
+            </table>
+        
+    </div>
+</section>
+
+

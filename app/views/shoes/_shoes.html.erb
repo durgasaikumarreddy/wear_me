@@ -1,0 +1,24 @@
+<section class="shop_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <% @shoes.each do |shoe| %>
+                <div class="col-sm-6 col-xl-4 ">
+                    <div class="box">
+                        <div class="img-box">
+                            <%= image_tag shoe.product_image%>
+                        </div>
+
+                        <div class="detail-box">
+                            <h6><%= shoe.brand%></h6>&nbsp;
+                            <h6><%= shoe.name%></h6>&nbsp;
+                            <h6><span class = "symbol">₹</span><span><%= shoe.price%></span></h6>&nbsp;
+                        </div>
+                        <div class= "d-flex ">
+                        <%= button_to 'Add to cart', line_items_path(:store_id => shoe.id)%>
+                        </div>
+                    </div>
+                </div>
+            <% end%>
+        </div>
+    </div>
+</section>

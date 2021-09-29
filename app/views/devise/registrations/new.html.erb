@@ -1,0 +1,42 @@
+<section class="contact_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <div class="heading_container">
+            <h2>Sign up</h2>
+          </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <em><% @minimum_password_length %></em>
+              <% end %><br />
+              <%= f.password_field :password,placeholder: "Enter minimum (#{@minimum_password_length} characters)", autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :confirm_password %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="d-flex ">
+              <button>
+                Sign up
+              </button>
+            </div>
+          <% end %><br>
+        </div>
+        <div class="heading_container">
+        <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
