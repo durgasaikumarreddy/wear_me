@@ -413,7 +413,7 @@ a:focus {
   background-color: #f0d43a;
 }
 
-.shop_section .heading_container {
+.shop1_section .heading_container {
   margin-bottom: 20px;
 }
 
@@ -421,7 +421,7 @@ a:focus {
   margin-bottom: 10px;
 }
 
-.shop_section .box {
+.shop1_section .box {
   background-color: #faf9fa;
   position: relative;
   padding: 10px 15px;
@@ -430,11 +430,11 @@ a:focus {
   overflow: hidden;
 }
 
-.shop_section .box a {
+.shop1_section .box a {
   color: #000000;
 }
 
-.shop_section .box .img-box {
+.shop1_section .box .img-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -448,12 +448,12 @@ a:focus {
   height: 245px;
 }
 
-.shop_section .box .img-box img {
+.shop1_section .box .img-box img {
   max-width: 100%;
   max-height: 175px;
 }
 
-.shop_section .box .detail-box {
+.shop1_section .box .detail-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -462,12 +462,12 @@ a:focus {
           justify-content: space-between;
 }
 
-.shop_section .box .detail-box h6 span {
+.shop1_section .box .detail-box h6 span {
   color: #fc1d0d;
   font-weight: 600;
 }
 
-.shop_section .box .new {
+.shop1_section .box .new {
   padding: 7px 15px;
   position: absolute;
   top: 0;
@@ -486,7 +486,7 @@ a:focus {
   font-size: 15px;
 }
 
-.shop_section .btn-box {
+.shop1_section .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -496,7 +496,7 @@ a:focus {
   margin-top: 45px;
 }
 
-.shop_section .btn-box a {
+.shop1_section .btn-box a {
   display: inline-block;
   padding: 10px 50px;
   background-color: #f0d43a;
@@ -507,7 +507,7 @@ a:focus {
   border: 1px solid #f0d43a;
 }
 
-.shop_section .btn-box a:hover {
+.shop1_section .btn-box a:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
           transform: translateY(-3px);
@@ -741,7 +741,7 @@ a:focus {
     color: black;
     margin-top: 0px;
 }
-.shop_section input[type="submit" i] {
+.shop1_section input[type="submit" i] {
   font-family: "Poppins", sans-serif;
   display: inline-block;
   padding: 10px 65px;
