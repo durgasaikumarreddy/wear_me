@@ -5,6 +5,7 @@ ruby '2.7.4'
 gem 'devise'
 gem 'activemerchant'
 gem "aws-sdk-s3", require: false
+gem 'figaro'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
