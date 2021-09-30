@@ -100,8 +100,8 @@ config.action_mailer.default :charset => "utf-8"
 config.action_mailer.smtp_settings = {
 :address              => "smtp.gmail.com",
 :port                 => 587,
-:user_name            => ENV['MAIL_ID'] ,
-:password             => ENV['MAIL_PASSWORD'] ,
+:user_name            => "sai2kumar5@gmail.com",
+:password             => "14354-eE-003" ,
 :authentication       => "plain",
 :enable_starttls_auto => true
 }
