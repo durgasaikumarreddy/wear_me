@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://kit.fontawesome.com/01d9b695e4.js" crossorigin="anonymous"></script>
     <title>WearMe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -27,29 +28,38 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="/users/sign_in">Home <span class="sr-only">(current)</span></a>
-              </li>
               <li class="nav-item">
-                <a class="nav-link" href="/shoes/index"> Shoes </a>
+              <a class="nav-link" href= "/shoes/index" >
+               <i class="fas fa-home fa-1x"><span>Home</span></i>
+              </a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link" href="/home/contact">Contact Us</a>
+                <a class="nav-link" href="/contact/index">
+                  <i class="fas fa-address-book fa-1x"><span>Contact us</span></i>
+                </a>
               </li>
               <li class="nav-item">
                 <% if user_signed_in? %>
                   <li class="nav-item">Logged in as <strong><%= current_user.email %></strong></li>
                   <li class="nav-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %> </li>
-                  <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %></li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out-alt fa-2x"></i>
+                  <% end %>
                 <% end %>
               </li>
             </ul>
 
             <div class="user_option-box">
-              <a href= "/admin/login" >
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>&emsp;
+            <% if session[:admin] %>
+              <%= link_to admin_logout_path do %>
+                    <i class="fa fa-sign-out-alt fa-1x"></i>&emsp;
+                  <% end %>
+            <% else %>
+              <%= link_to ('/users/sign_in') do %>
+                <i class="fa fa-user" aria-hidden="true"></i>&emsp;
+              <% end %>
+            <% end %>
               <i>
               <%= form_tag("/shoes/search", method: "get") do %>
               <%= text_field_tag :search,nil, placeholder: 'Search here' %>
@@ -71,12 +81,6 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %></center>
-  
-    <% if session[:admin] %>
-      <%= link_to "Logout","/admin/logout", class: "log-out" %>
-    <% else %>
-      <% link_to "Login", "/admin/login" %>
-    <% end %>
   
     <%= yield %>
 

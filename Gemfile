@@ -6,6 +6,9 @@ gem 'devise'
 gem 'activemerchant'
 gem "aws-sdk-s3", require: false
 gem 'figaro'
+gem "mail_form"
+gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

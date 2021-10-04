@@ -1,46 +1,57 @@
 <section class="cart_section layout_padding">
-<div class="cart_container">
-    
-        <div align="end">
-        <% if user_signed_in? %>
-            <%= button_to "Checkout", :controller =>"shoes", :action=>"checkout", :amount =>cart.total_price%>
-        <% else%>
-            <%= button_to "Checkout", "/users/sign_in" %>
-        <% end%><br><br>
-        </div>
-
+    <div class="cart_container">
         <div class="cart_heading_container ">
-            <h2>Your Cart</h2><br>
+                <h2>Your Cart</h2><br>
         </div>
-        
-            <% unless cart.line_items.empty? %>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>&ensp;Price</th>
-                        <th>&ensp;Qty</th>
-                        <th>&ensp;Total Price</th>
-                        <th colspan="2"></th>
-                    </tr>
-                    <%= render(cart.line_items) %>
-                    <tr>
-                        <th colspan="2">Sub Total:</th>
-                        <td class="total_cell">₹<%= cart.total_price%></td>
-                    </tr>
-                    <% session[:amount] = "₹ #{cart.total_price}" %>
+            
+        <% unless cart.line_items.empty? %>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>&ensp;Unit Price</th>
+                    <th>&ensp;Qty</th>
+                    <th>&ensp;Total Price</th>
+                    <th colspan="2"></th>
+                </tr>
+                <%= render(cart.line_items) %>
+                <tr>
+                    <th colspan="2">Sub Total:</th>
+                    <td class="total_cell">₹<%= cart.total_price%></td>
+                </tr>
+                <% session[:amount] = "₹ #{cart.total_price}" %>
+            </table><br>
                     
-                </table>
-                <table>
-                <%= button_to "Continue Shopping", :controller=>"shoes", :action=>"index", :amount =>cart.total_price%>&emsp;
-    
-                    <tr>
-                        <%= button_to 'Empty Cart', cart, :method => :delete, :conirm => 'Are you sure?' %>&emsp;
-                        
-                    </tr>
-                <% end%>
+            <table>
+                <tr>
+                    <%= button_to "/shoes/index", :amount =>cart.total_price, :class => "search_button" do %>
+                        <i class="fas fa-angle-double-left fa-3x" ></i>
+                    <% end%>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <% if user_signed_in? %>
+                        <%= button_to "/shoes/checkout", :amount =>cart.total_price, :class => "search_button" do%>
+                            <i class="fas fa-money-check-alt fa-3x" ></i>
+                        <% end%>
+                    <% else%>
+                        <%= button_to "/users/sign_in", :class => "search_button" do%>
+                            <i class="fas fa-money-check-alt fa-3x" ></i>
+                        <% end%>
+                        <% flash[:notice] = "Please! Login to continue"%>
+                    <% end%>
+                </tr>
             </table>
+                
+                
         
+                
+                    <div align="middle">
+                    <%= link_to "Empty Cart", @cart, method: :delete, data:{confirm: 'Are you sure?'}, :class=>"button"%>
+                    </div>
+                
+            
+        <% end%>
     </div>
 </section>
+
 
 

@@ -952,6 +952,19 @@ a:focus {
 .footer_section form input::placeholder {
   color: #ffffff;
 }
+.button {
+  font-family: "Poppins", sans-serif;
+  display: inline-block;
+  padding: 10px 65px;
+  background-color: #f0d43a;
+  color: #ffffff;
+  border-radius: 12px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #f0d43a;
+  color: #fff;
+  margin-top: 10px;
+}
 
 .footer_section form button {
   width: 100%;

@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
     def login
         if request.post?
-            if params[:name]=="admin" && params[:password]=="nimda"
+            if params[:name]=="admin" && params[:password]== "nimda"
                 session[:admin] = "admin"
                 flash[:notice]="Welcome Admin"
                 redirect_to stores_path

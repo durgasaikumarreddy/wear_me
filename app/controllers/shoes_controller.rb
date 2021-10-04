@@ -29,18 +29,15 @@ class ShoesController < ApplicationController
         
         response = gateway.authorize(amount,credit_card)
         
-
-        if response.success?
-          
-          OrderMailer.order_success(current_user, current_cart).deliver
-          gateway.capture(amount, response.authorization)
-          redirect_to :controller=>:shoes, :action => :purchase_complete
-          session[:user] = nil
-          
+          if response.success?
+            OrderMailer.order_success(current_user, current_cart).deliver
+            gateway.capture(amount, response.authorization)
+            redirect_to :controller=>:shoes, :action => :purchase_complete
+            current_cart.destroy
+          end  
         else
           flash[:notice] = "Please! Enter Valid  card details."
-          render :action =>:checkout
-        end
+          redirect_to :action =>:checkout
       end
     end
   end
