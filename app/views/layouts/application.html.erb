@@ -8,14 +8,18 @@
     <title>WearMe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="shortcut icon" href="/assets/shoe_icon.png" type="image/x-icon">
   </head>
 
   <body>
-  
+    
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
@@ -43,6 +47,7 @@
                   <i class="fas fa-address-book fa-1x"><span>Contact us</span></i>
                 </a>
               </li>
+
               <li class="nav-item">
                 <% if user_signed_in? %>
                   <li class="nav-item">Logged in as <strong><%= current_user.email %></strong></li>
@@ -55,39 +60,36 @@
             </ul>
 
             <div class="user_option-box">
-            <% if session[:admin] %>
-              <%= link_to admin_logout_path do %>
-                    <i class="fa fa-sign-out-alt fa-1x"></i>&emsp;
-                  <% end %>
-            <% else %>
-              <%= link_to ('/users/sign_in') do %>
-                <i class="fa fa-user" aria-hidden="true"></i>&emsp;
+              <% if session[:admin] %>
+                <%= link_to admin_logout_path do %>
+                      <i class="fa fa-sign-out-alt fa-1x"></i>&emsp;
+                    <% end %>
+              <% else %>
+                <%= link_to ('/users/sign_in') do %>
+                  <i class="fa fa-user" aria-hidden="true"></i>&emsp;
+                <% end%>
               <% end%>
-            <% end%>
 
-            <% if session[:cart_id] %>
-              <% cart=Cart.find_by(:id => session[:cart_id]) %>
-                <% if cart.present? %>
-                  <%= link_to cart do%>
-                    <i class="fa fa-cart-plus"></i>&emsp;
-                  <% end %>
-                
-                <% else%>
-                  <%= link_to shoes_index_path do%>
-                    <i class="fa fa-cart-plus"></i>&emsp;
-                  <% end%>
-                <% end%>  
-            <% end%>
-          
-              <i>
+              <% if session[:cart_id] %>
+                <% cart=Cart.find_by(:id => session[:cart_id]) %>
+                  <% if cart.present? %>
+                    <%= link_to cart do%>
+                      <i class="fa fa-cart-plus"></i>&emsp;
+                    <% end %>
+                  <% else%>
+                    <%= link_to shoes_index_path do%>
+                      <i class="fa fa-cart-plus"></i>&emsp;
+                    <% end%>
+                  <% end%>  
+              <% end%>
+      
               <%= form_tag("/shoes/search", method: "get") do %>
-              <%= text_field_tag :search,nil, placeholder: 'Search here' %>
-              <%= button_tag type: 'submit',class: "search_button" do %>
-                <i class="fa fa-search" aria-hidden="true"></i>
-                
+                <%= text_field_tag :search,nil, placeholder: 'Search here' %>
+                <%= button_tag type: 'submit',class: "search_button" do %>
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                <% end %>
               <% end %>
-              <% end %>
-              </i>
+
             </div>
           </div>
         </nav>
@@ -95,15 +97,16 @@
     </header>
     <!-- end header section -->
     <center>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %></center>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </center>
   
     <%= yield %>
-
+  
     <!-- footer section -->
     <footer class="footer_section">
       <div class="container">
