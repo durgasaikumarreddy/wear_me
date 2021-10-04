@@ -32,11 +32,11 @@
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     <% if user_signed_in? %>
-                        <%= button_to "/shoes/checkout", :amount =>cart.total_price, :class => "search_button" do%>
+                        <%= link_to "/shoes/checkout", :amount =>cart.total_price, :class => "search_button" do%>
                             <i class="fas fa-money-check-alt fa-3x" ></i>
                         <% end%>
                     <% else%>
-                        <%= button_to "/users/sign_in", :class => "search_button" do%>
+                        <%= link_to "/users/sign_in", :class => "search_button" do%>
                             <i class="fas fa-money-check-alt fa-3x" ></i>
                         <% end%>
                         <% flash.alert = "Please! Login to continue"%>
