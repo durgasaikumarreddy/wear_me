@@ -61,18 +61,19 @@
                 <i class="fa fa-user" aria-hidden="true"></i>&emsp;
               <% end%>
             <% end%>
-            
+
             <% if session[:cart_id] %>
               <% cart=Cart.find_by(:id => session[:cart_id]) %>
                 <% if cart.present? %>
                   <%= link_to cart do%>
                     <i class="fa fa-cart-plus"></i>&emsp;
                   <% end %>
+                
                 <% else%>
                   <%= link_to shoes_index_path do%>
                     <i class="fa fa-cart-plus"></i>&emsp;
                   <% end%>
-                <% end%>
+                <% end%>  
             <% end%>
           
               <i>

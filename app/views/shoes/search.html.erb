@@ -1,2 +1,5 @@
 <h1>Search Results</h1>
+<% if @shoes.empty? %>
+<center><h4 style="color:red">No Results found</h4></center>
+<% end%>
 <%= render 'shoes'%>
