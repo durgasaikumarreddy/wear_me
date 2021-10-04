@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
     def after_sign_in_path_for(user)
-        cart=Cart.find(session[:cart_id])
-        if session[:cart_id] = cart.id
+        
+        if session[:cart_id]
+            cart=Cart.find(session[:cart_id])
             cart
-        else session[:cart_id] = nil
+        else
             shoes_index_path
         end
     end
