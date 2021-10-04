@@ -5,6 +5,7 @@
         <div class="form_container">
           <div class="heading_container">
             <h2>Change your password</h2>
+          </div>
           
           <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
@@ -27,7 +28,9 @@
               <button>Change my password</button>
             </div>
           <% end %>
+
           <br><%= render "devise/shared/links" %>
+          
         </div>
       </div>
     </div>

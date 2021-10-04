@@ -1,34 +1,35 @@
-
 <section class="contact_section layout_padding">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
         <div class="form_container">
          <h4>Checkout for Amount <span style="color:red"><%= session[:amount] %></span></h4>
-         <%= form_with do |form| %>
+
+        <%= form_with do |form| %>
         
-            <div class="field">
-                <%= form.label :first_name %>
-                <%= form.text_field :first_name %>
-            </div>
+          <div class="field">
+              <%= form.label :first_name %>
+              <%= form.text_field :first_name %>
+          </div>
 
-            <div class="field">
-                <%= form.label :last_name %>
-                <%= form.text_field :last_name %>
-            </div>
+          <div class="field">
+              <%= form.label :last_name %>
+              <%= form.text_field :last_name %>
+          </div>
 
-            <div class="field">
-                <%= form.label :card_number %>
-                <%= form.text_field :number %>
-            </div>
+          <div class="field">
+              <%= form.label :card_number %>
+              <%= form.text_field :number %>
+          </div>
 
-           
-           <table>
-           <tr>
-            <td><%= form.label :expiry_date%></td>&emsp;
-            <td><%= form.label "card_verification_value (CVV) "%></td></tr>
-            <tr><td>
-            <select name="month">
+          <table>
+            <tr>
+              <td><%= form.label :expiry_date%></td>&emsp;
+              <td><%= form.label "card_verification_value (CVV) "%></td>
+            </tr>
+
+            <td>
+              <select name="month">
                 <option selected value="01">Jan
                 <option value="02">Feb
                 <option value="03">Mar
@@ -41,8 +42,8 @@
                 <option value="10">Oct
                 <option value="11">Nov
                 <option value="12">Dec
-            </select>
-             <select name="year">
+              </select>
+              <select name="year">
                 <option selected value="2021">2021
                 <option value="2022">2022
                 <option value="2023">2023
@@ -51,22 +52,22 @@
                 <option value="2026">2026
                 <option value="2027">2027
                 <option value="2028">2028
-            </select>
-            </td><td>
-            <%= form.text_field :verification_value %>
+              </select>
             </td>
-            </table>
+            
+            <td>
+              <%= form.text_field :verification_value %>
+            </td>
+          </table>
            
-            <div class="d-flex">
-                <button>
-                Pay
-                </button>
-            </div>
+          <div class="d-flex">
+            <button>
+              Pay
+            </button>
+          </div>
 
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
 </section>
-

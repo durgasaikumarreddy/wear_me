@@ -35,9 +35,9 @@ class ShoesController < ApplicationController
             redirect_to :controller=>:shoes, :action => :purchase_complete
             current_cart.destroy
           end  
-        else
-          flash[:notice] = "Please! Enter Valid  card details."
-          redirect_to :action =>:checkout
+      else
+        flash[:notice] = "Please! Enter Valid  card details."
+        redirect_to :action =>:checkout
       end
     end
   end

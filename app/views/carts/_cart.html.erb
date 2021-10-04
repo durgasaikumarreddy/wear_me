@@ -13,17 +13,20 @@
                     <th>&ensp;Total Price</th>
                     <th colspan="2"></th>
                 </tr>
+
                 <%= render(cart.line_items) %>
+
                 <tr>
                     <th colspan="2">Sub Total:</th>
                     <td class="total_cell">₹<%= cart.total_price%></td>
                 </tr>
+
                 <% session[:amount] = "₹ #{cart.total_price}" %>
             </table><br>
                     
             <table>
                 <tr>
-                    <%= button_to "/shoes/index", :amount =>cart.total_price, :class => "search_button" do %>
+                    <%= link_to shoes_index_path, :amount =>cart.total_price, :class => "search_button" do %>
                         <i class="fas fa-angle-double-left fa-3x" ></i>
                     <% end%>
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -36,19 +39,16 @@
                         <%= button_to "/users/sign_in", :class => "search_button" do%>
                             <i class="fas fa-money-check-alt fa-3x" ></i>
                         <% end%>
-                        <% flash[:notice] = "Please! Login to continue"%>
+                        <% flash.alert = "Please! Login to continue"%>
                     <% end%>
                 </tr>
+
             </table>
                 
-                
-        
-                
-                    <div align="middle">
-                    <%= link_to "Empty Cart", @cart, method: :delete, data:{confirm: 'Are you sure?'}, :class=>"button"%>
-                    </div>
-                
-            
+            <div align="middle">
+                <%= link_to "Empty Cart", @cart, method: :delete, data:{confirm: 'Are you sure?'}, :class=>"button"%>
+            </div>
+  
         <% end%>
     </div>
 </section>

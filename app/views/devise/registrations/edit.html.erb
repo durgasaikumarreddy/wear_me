@@ -6,6 +6,7 @@
           <div class="heading_container">
           <h2>Edit <%= resource_name.to_s.humanize %></h2>
           </div>
+
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -40,14 +41,18 @@
             <div class="d-flex ">
               <button>Update</button>
             </div><br>
+
           <% end %>
+
           <h6>Unhappy?</h6>
           <div class="d-flex ">
             <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
           </div>
+
           <div class="heading_container">
           <%= link_to "Back", :back %>
           </div>
+          
         </div>
       </div>
     </div>

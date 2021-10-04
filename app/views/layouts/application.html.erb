@@ -59,13 +59,28 @@
             <% else %>
               <%= link_to ('/users/sign_in') do %>
                 <i class="fa fa-user" aria-hidden="true"></i>&emsp;
-              <% end %>
-            <% end %>
+              <% end%>
+            <% end%>
+            
+            <% if session[:cart_id] %>
+              <% cart=Cart.find_by(:id => session[:cart_id]) %>
+                <% if cart.present? %>
+                  <%= link_to cart do%>
+                    <i class="fa fa-cart-plus"></i>&emsp;
+                  <% end %>
+                <% else%>
+                  <%= link_to shoes_index_path do%>
+                    <i class="fa fa-cart-plus"></i>&emsp;
+                  <% end%>
+                <% end%>
+            <% end%>
+          
               <i>
               <%= form_tag("/shoes/search", method: "get") do %>
               <%= text_field_tag :search,nil, placeholder: 'Search here' %>
               <%= button_tag type: 'submit',class: "search_button" do %>
                 <i class="fa fa-search" aria-hidden="true"></i>
+                
               <% end %>
               <% end %>
               </i>
@@ -95,19 +110,19 @@
                About
               </h4>
               <p>
-               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+               We have the latest collection with affordable prices and at your comfort level.
               </p>
               <div class="footer_social">
-                <a href="">
+                <a href="https://www.facebook.com/westagilelabsSF">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
-                <a href="">
+                <a href="https://twitter.com/WestAgileLabs">
                   <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
-                <a href="">
+                <a href="https://www.linkedin.com/company/west-agile-labs/">
                   <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
-                <a href="">
+                <a href="https://www.instagram.com/westagilelabs/">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </div>
@@ -151,7 +166,7 @@
         <div class="footer-info">
           <p>
             &copy; <span id="displayYear"></span> All Rights Reserved By
-            <a href="https://html.design/">Free Html Templates</a>
+            <a href="https://www.westagilelabs.com/">West Agile Labs</a>
           </p>
         </div>
       </div>
